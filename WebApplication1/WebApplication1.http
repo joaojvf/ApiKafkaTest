@@ -1,0 +1,18 @@
+@WebApplication1_HostAddress = https://localhost:7207
+
+### POST an event
+POST {{WebApplication1_HostAddress}}/events
+Content-Type: application/json
+
+{
+  "userId": "user-123",
+  "type": "login",
+  "timestamp": "{{$datetime iso8601}}",
+  "data": { "ip": "127.0.0.1" }
+}
+
+### GET processed events
+GET {{WebApplication1_HostAddress}}/events?limit=5
+Accept: application/json
+
+###
